@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>John Rizos · Work samples</title>
+  <meta name="description" content="Work samples from John Rizos, full-stack developer in Athens.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%277%27 fill=%27%231f4fd6%27/%3E%3Ctext x=%2716%27 y=%2722%27 font-family=%27Arial%27 font-size=%2715%27 font-weight=%27700%27 fill=%27white%27 text-anchor=%27middle%27%3EJR%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="hero">
+    <div class="wrap">
+      <p class="eyebrow">Work samples</p>
+      <h1>John Rizos</h1>
+      <p class="lead">I'm a full-stack developer in Athens. I've written JavaScript for a living for over ten years, and for the last five I've been building apps with React and Node.js.</p>
+      <p class="note">Some of these had a designer and some didn't, so under each one I say which parts were mine.</p>
+      <nav class="links" aria-label="Profiles">
+        <a href="https://github.com/johnrizos">GitHub</a>
+        <a href="https://www.linkedin.com/in/john-rizos">LinkedIn</a>
+      </nav>
+      <ol class="toc">
+        <li><a href="#dexiosi">Dexiosi Flow</a></li>
+        <li><a href="#qr">In-Site QR Ordering</a></li>
+        <li><a href="#persado">Internal tools at Persado</a></li>
+        <li><a href="#nivea">NIVEA Face Care Guide</a></li>
+        <li><a href="#contests">Contest microsites</a></li>
+        <li><a href="#oss">Also on GitHub</a></li>
+      </ol>
+    </div>
+  </header>
+
+  <main>
+
+    <section id="dexiosi" class="project">
+      <div class="wrap">
+        <p class="meta">Side project · 2026 · React, Node.js, PostgreSQL</p>
+        <h2>Dexiosi Flow</h2>
+        <p class="summary">Wedding venues in Greece still run guest lists on an Excel file that goes back and forth with the family, sometimes in more than a dozen versions. With Dexiosi the family fills in the list from a link, and the venue sees every change as it happens.</p>
+
+        <div class="role">
+          <div>
+            <h3>My part</h3>
+            <p>All of it: the idea, the design and the code. The front end is React. You arrange the floor plan by dragging tables around, each event gets its own copy of the layout, and once the list is locked the venue sees exactly what changed after that. The back end is Node.js with PostgreSQL, and changes reach the venue live over Server-Sent Events. There are 21 automated tests.</p>
+          </div>
+          <div>
+            <h3>Choices I made</h3>
+            <p>The family doesn't need an account. They get one link and one page that works on a phone. On the venue's side, events that need attention come first, so nothing urgent gets buried.</p>
+          </div>
+        </div>
+
+        <div class="stepper" data-stepper="Dexiosi Flow">
+          <div class="steps" role="tablist" aria-label="Dexiosi Flow screens">
+            <button role="tab" aria-selected="true" data-desktop="img/dex-desktop-1-events.webp" data-mobile="img/dex-mobile-1-events.webp">1 · Events</button>
+            <button role="tab" data-desktop="img/dex-desktop-2-event.webp" data-mobile="img/dex-mobile-2-event.webp">2 · Event &amp; changes</button>
+            <button role="tab" data-desktop="img/dex-desktop-3-floorplan.webp" data-mobile="img/dex-mobile-3-floorplan.webp">3 · Floor plan</button>
+            <button role="tab" data-desktop="img/dex-desktop-4-client.webp" data-mobile="img/dex-mobile-4-client.webp">4 · Family's link</button>
+            <button role="tab" data-desktop="img/dex-desktop-6-landing.webp" data-mobile="img/dex-mobile-6-landing.webp">5 · Product page</button>
+          </div>
+          <div class="pair">
+            <figure class="desktop">
+              <a data-full="desktop" href="img/dex-desktop-1-events.webp" target="_blank" rel="noopener">
+                <img data-img="desktop" src="img/dex-desktop-1-events.webp" width="1440" height="915" alt="Desktop: Events, Dexiosi Flow">
+              </a>
+              <figcaption>Desktop, with demo data</figcaption>
+            </figure>
+            <figure class="phone">
+              <div class="phone-frame">
+                <a data-full="mobile" href="img/dex-mobile-1-events.webp" target="_blank" rel="noopener">
+                  <img data-img="mobile" src="img/dex-mobile-1-events.webp" width="600" height="2340" alt="Mobile: Events, Dexiosi Flow">
+                </a>
+              </div>
+              <figcaption>Phone (scroll inside it)</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="qr" class="project">
+      <div class="wrap">
+        <p class="meta">Side project · 2026 · React, Tailwind, Node.js, SQLite, Stripe</p>
+        <h2>In-Site QR Ordering</h2>
+        <p class="summary">Customers at a café scan the QR code on their table, order and pay by card. The order shows up straight away on the staff screen, split between bar and kitchen.</p>
+
+        <div class="role">
+          <div>
+            <h3>My part</h3>
+            <p>I designed and built all three parts: the menu customers see on their phone, the board the staff work from, and an admin area for the platform. Behind them is an Express API with separate roles for owners, cashiers, waiters, kitchen, bar and runners. Payments go through Stripe. The server works out the price from the menu, so nobody can change it in the browser, and an order only counts once Stripe confirms the payment.</p>
+          </div>
+          <div>
+            <h3>Choices I made</h3>
+            <p>Each item is tracked per station. If the salad is ready but the coffee isn't, the waiter can see that and take the salad now. The QR stickers point to a short code rather than a table, so moving a table doesn't mean printing new stickers.</p>
+          </div>
+        </div>
+
+        <div class="stepper" data-stepper="In-Site QR Ordering">
+          <div class="steps" role="tablist" aria-label="QR Ordering screens">
+            <button role="tab" aria-selected="true" data-desktop="img/qr-desktop-1-orders.webp" data-mobile="img/qr-mobile-1-menu.webp">1 · Order board · Menu</button>
+            <button role="tab" data-desktop="img/qr-desktop-3-menu.webp" data-mobile="img/qr-mobile-2-options.webp">2 · Menu admin · Options</button>
+            <button role="tab" data-desktop="img/qr-desktop-4-qr.webp" data-mobile="img/qr-mobile-4-orders.webp">3 · QR codes · Staff on phone</button>
+          </div>
+          <div class="pair">
+            <figure class="desktop">
+              <a data-full="desktop" href="img/qr-desktop-1-orders.webp" target="_blank" rel="noopener">
+                <img data-img="desktop" src="img/qr-desktop-1-orders.webp" width="1440" height="900" alt="Desktop: Order board, In-Site QR Ordering">
+              </a>
+              <figcaption>Staff screen, with demo data</figcaption>
+            </figure>
+            <figure class="phone">
+              <div class="phone-frame">
+                <a data-full="mobile" href="img/qr-mobile-1-menu.webp" target="_blank" rel="noopener">
+                  <img data-img="mobile" src="img/qr-mobile-1-menu.webp" width="600" height="1298" alt="Mobile: Menu, In-Site QR Ordering">
+                </a>
+              </div>
+              <figcaption>Phone</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="persado" class="project">
+      <div class="wrap">
+        <p class="meta">Persado · 2021–2026 · React, TypeScript, Node.js, PostgreSQL, Docker</p>
+        <h2>Internal tools at Persado</h2>
+        <p class="summary">Tools I built for the delivery team, to take slow, manual work off their hands.</p>
+
+        <div class="role">
+          <div>
+            <h3>My part</h3>
+            <p>We had no designer for internal tools, so how each one looked and worked was up to me. I built the front ends in React and TypeScript, or plain JavaScript where that was enough, and the Node.js APIs behind them, and took each tool from the first conversation with the account team through to release.</p>
+          </div>
+          <div>
+            <h3>Why no screenshots</h3>
+            <p>They show client data, so I can't share them. I'm happy to talk them through in an interview.</p>
+          </div>
+        </div>
+
+        <div class="cases">
+
+          <article class="case">
+            <h3>From Figma design to MJML email, with AI</h3>
+            <dl>
+              <dt>What it does</dt>
+              <dd>You upload an image of the email design from Figma, plus a JSON file with the fonts and spacing. The tool sends both to an AI model and gets back the email in MJML. From there you keep working in an editor that shows errors on every change, with desktop and mobile previews side by side.</dd>
+              <dt>Also</dt>
+              <dd>Each client has its own account, where you upload their images and reusable components. Before sending, the tool runs its QA checks, and an AI model looks at screenshots of the email from Mailgun to catch visual mistakes.</dd>
+              <dt>Built with</dt>
+              <dd>React, TypeScript, Node.js and PostgreSQL. I built it on my own in 2026.</dd>
+            </dl>
+          </article>
+
+          <article class="case">
+            <h3>Push notification packages for Adobe Campaign Classic</h3>
+            <dl>
+              <dt>The problem</dt>
+              <dd>A client ran our scripts for push notifications in Adobe Campaign Classic, and every delivery had to be packaged in a very specific way: four JavaScript files with fixed names and content, some variables added or changed, then minified, encoded, renamed and zipped under a fixed name. Checking it meant undoing all of that by hand to confirm each variable and its content. One package took three to four hours.</dd>
+              <dt>What it does</dt>
+              <dd>It pulls the content from the company portal through its API, writes the four files, minifies and encodes them, names them and zips them. Then it unzips and decodes its own output and checks every variable, and shows an alert or an error if anything is off.</dd>
+              <dt>Result</dt>
+              <dd>A few seconds instead of up to four hours for each package.</dd>
+              <dt>Built with</dt>
+              <dd>Plain browser JavaScript and the portal's API. I built it on my own in 2023.</dd>
+            </dl>
+          </article>
+          <article class="case">
+            <h3>Email builder for a banking client</h3>
+            <dl>
+              <dt>The problem</dt>
+              <dd>The client gave us one master HTML email that had to go out under about 50 different brands. Each brand needed its own copy, links, logo and setup. Preparing the HTML, the setup files and the QA for one version took about three days.</dd>
+              <dt>What it does</dt>
+              <dd>You enter each brand's details and the tool builds every version from the master template, ready to hand over to the client. It also runs the checks we used to do by hand, on the content and on every link.</dd>
+              <dt>Result</dt>
+              <dd>The tool produced the files and ran the checks in seconds, so all 50 versions were delivered in about three days, where before each one took that long.</dd>
+              <dt>Built with</dt>
+              <dd>Node.js, HTML, plain browser JavaScript and Bootstrap. I built it on my own in 2022.</dd>
+            </dl>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="nivea" class="project">
+      <div class="wrap">
+        <p class="meta">VML for NIVEA · PHP, vanilla JavaScript, hand-written CSS</p>
+        <h2>NIVEA Face Care Guide</h2>
+        <p class="summary">A short quiz for nivea.gr. You answer a few questions about your skin and habits, and at the end you get a three-step routine of NIVEA products picked for you.</p>
+
+        <div class="role">
+          <div>
+            <h3>My part</h3>
+            <p>The designer gave me desktop mockups only. The phone and tablet versions were up to me, so how each step fits and works on a small screen was my call. I built it with plain JavaScript and my own CSS, and wrote the PHP that matches the answers to products.</p>
+          </div>
+          <div>
+            <h3>Not mine</h3>
+            <p>The desktop designs.</p>         
+          </div>
+        </div>
+
+        <div class="stepper" data-stepper="NIVEA Face Care Guide">
+          <div class="steps" role="tablist" aria-label="Quiz steps">
+            <button role="tab" aria-selected="true" data-desktop="img/nivea-desktop-1-intro.webp" data-mobile="img/nivea-mobile-1-intro.webp">1 · Intro</button>
+            <button role="tab" data-desktop="img/nivea-desktop-3-quiz-answered.webp" data-mobile="img/nivea-mobile-3-quiz-answered.webp">2 · About you</button>
+            <button role="tab" data-desktop="img/nivea-desktop-4-cleansing.webp" data-mobile="img/nivea-mobile-4-cleansing.webp">3 · Cleansing</button>
+            <button role="tab" data-desktop="img/nivea-desktop-5-concern.webp" data-mobile="img/nivea-mobile-5-concern.webp">4 · Main concern</button>
+            <button role="tab" data-desktop="img/nivea-desktop-6-routine.webp" data-mobile="img/nivea-mobile-6-routine.webp">5 · Your routine</button>
+            <button role="tab" data-desktop="img/nivea-desktop-7-extra.webp" data-mobile="img/nivea-mobile-7-extra.webp">6 · Extra care</button>
+          </div>
+          <div class="pair">
+            <figure class="desktop">
+              <a data-full="desktop" href="img/nivea-desktop-1-intro.webp" target="_blank" rel="noopener">
+                <img data-img="desktop" src="img/nivea-desktop-1-intro.webp" width="1440" height="900" alt="Desktop: intro screen of the NIVEA Face Care Guide">
+              </a>
+              <figcaption>Desktop: the designer's layout, built by me</figcaption>
+            </figure>
+            <figure class="phone">
+              <div class="phone-frame">
+                <a data-full="mobile" href="img/nivea-mobile-1-intro.webp" target="_blank" rel="noopener">
+                  <img data-img="mobile" src="img/nivea-mobile-1-intro.webp" width="600" height="1298" alt="Mobile: intro screen of the NIVEA Face Care Guide">
+                </a>
+              </div>
+              <figcaption>Phone: my design</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contests" class="project">
+      <div class="wrap">
+        <p class="meta">VML · 2018–2021 · custom PHP, MySQL, JavaScript</p>
+        <h2>Contest microsites</h2>
+        <p class="summary">Promo sites for brands like La Vache qui rit, NIVEA and Pirelli. People signed up, entered the codes from the products they bought and took part in prize draws.</p>
+
+        <div class="role">
+          <div>
+            <h3>My part</h3>
+            <p>Same setup as the NIVEA quiz: desktop designs from the agency, mobile versions by me. Everything else I wrote in PHP and MySQL without a framework, including sign-up and login, code checks, the draws and the admin panels.</p>
+          </div>
+          <div>
+            <h3>Not mine</h3>
+            <p>The desktop designs.</p>
+          </div>
+        </div>
+
+        <div class="gallery">
+          <figure>
+            <a href="img/contest-lvqr.webp" target="_blank" rel="noopener"><img src="img/contest-lvqr.webp" width="1280" height="706" loading="lazy" alt="La Vache qui rit 'Show Time' contest: sign-up and login, daily prizes"></a>
+            <figcaption><strong>La Vache qui rit · Show Time</strong> Sign-up, product codes, a draw every day</figcaption>
+          </figure>
+          <figure>
+            <a href="img/contest-nivea-sklavenitis.webp" target="_blank" rel="noopener"><img src="img/contest-nivea-sklavenitis.webp" width="1400" height="780" loading="lazy" alt="NIVEA contest with Sklavenitis supermarkets"></a>
+            <figcaption><strong>NIVEA × Sklavenitis</strong> Buy, enter, win: 10 winners</figcaption>
+          </figure>
+          <figure>
+            <a href="img/contest-pirelli.webp" target="_blank" rel="noopener"><img src="img/contest-pirelli.webp" width="1400" height="764" loading="lazy" alt="Pirelli promotion microsite"></a>
+            <figcaption><strong>Pirelli</strong> Sign-up for a tyre offer</figcaption>
+          </figure>
+          <figure>
+            <a href="img/contest-fashion.webp" target="_blank" rel="noopener"><img src="img/contest-fashion.webp" width="1400" height="1820" loading="lazy" alt="Fashion Design Project voting contest"></a>
+            <figcaption><strong>Fashion Design Project</strong> Visitors vote for their favourite design</figcaption>
+          </figure>
+          <figure>
+            <a href="img/contest-delta.webp" target="_blank" rel="noopener"><img src="img/contest-delta.webp" width="1400" height="1820" loading="lazy" alt="DELTA Little Prince campaign page"></a>
+            <figcaption><strong>ΔΕΛΤΑ · The Little Prince</strong> Campaign site</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section id="oss" class="project">
+      <div class="wrap">
+        <p class="meta">2026 · public on GitHub</p>
+        <h2>Also on GitHub</h2>
+        <p class="summary">The README has screenshots, so you can look around without installing anything.</p>
+
+        <article class="oss">
+          <a class="shot" href="img/oss-email-qa.webp" target="_blank" rel="noopener"><img src="img/oss-email-qa.webp" width="1400" height="836" loading="lazy" alt="email-qa: HTML editor with issue markers next to a list of problems"></a>
+          <div>
+            <h3>email-qa <span>React 19 · TypeScript · NestJS</span></h3>
+            <p>Checks an HTML email before it goes out. It catches broken links, missing alt text, CSS that email clients ignore and emails long enough for Gmail to cut off. Each problem is marked on its line, and clicking it in the list takes you straight there.</p>
+            <p><a href="https://github.com/johnrizos/email-qa">github.com/johnrizos/email-qa</a></p>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p>John Rizos · Athens · <a href="https://www.linkedin.com/in/john-rizos">LinkedIn</a> · <a href="https://github.com/johnrizos">GitHub</a></p>
+      <p class="small">Client work is shown as an example of what I did. The brands and the original designs belong to their owners.</p>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
